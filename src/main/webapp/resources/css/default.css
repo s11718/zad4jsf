@@ -23,16 +23,12 @@ body {
 }
 
 .menu {
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  border: thin solid blue;
-  position: absolute;
-  left: 10px;
-  height: 80%;
-  width: 200px;
-  background: #FFFFFF;
-  top: 90px;
+  padding: 10px;
+  background: #444666;
+  border: 1px solid blue;
+  font-family: Verdana;
+  height: 50px;
+
 }
 
 .content {
@@ -41,9 +37,17 @@ body {
   padding-bottom: 20px;
   border: thin solid blue;
   background: #FFFFFF;	
-  position:absolute;
-  left: 225px; 
-  right: 65px;
-  top: 90px;
+  left: 200px; 
+  right: 195px;
+  top: 160px;
   height: 80%;
+  position:absolute
+}
+
+.SearchButton{
+	height: 24px;
+	border: thin solid white;
+	weight:	50px;
+	font-size: 16px;
+	}
 }

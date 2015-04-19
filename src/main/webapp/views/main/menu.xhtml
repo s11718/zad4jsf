@@ -3,24 +3,9 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
-  <div>
-	<h:form>
-	  <ul>
-		<li>
-		  <h:commandLink action="home?faces-redirect=true">
-			<h:outputText value="#{msg.linkHome}" />
-		  </h:commandLink>
-		</li>
-		<li>
-		  <h:commandLink action="add?faces-redirect=true">
-			<h:outputText value="#{msg.personAddLabel}" />
-		  </h:commandLink></li>
-		<li>
-		  <h:commandLink action="showPersons?faces-redirect=true">
-			 <h:outputText value="#{msg.personAllLabel}" />
-		  </h:commandLink>
-		</li>
-	</ul>
-   </h:form>
-  </div>
+	<div>
+		<h:commandButton type="submit" id="SearchButton" value="#{msg.buttonSearchLabel}"
+			action="nextPage">
+		</h:commandButton>
+	</div>
 </ui:composition>
