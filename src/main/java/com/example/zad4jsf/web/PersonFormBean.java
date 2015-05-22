@@ -1,4 +1,4 @@
-package com.example.jsfdemo.web;
+package com.example.zad4jsf.web;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -16,8 +16,8 @@ import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.example.jsfdemo.domain.Person;
-import com.example.jsfdemo.service.PersonManager;
+import com.example.zad4jsf.domain.Person;
+import com.example.zad4jsf.service.PersonManager;
 
 @SessionScoped
 @Named("personBean")
@@ -49,7 +49,6 @@ public class PersonFormBean implements Serializable {
 	public String addPerson() {
 		pm.addPerson(person);
 		return "showPersons";
-		//return null;
 	}
 
 	public String deletePerson() {
@@ -60,7 +59,6 @@ public class PersonFormBean implements Serializable {
 
 	// Validators
 
-	// Business logic validation
 	public void uniquePin(FacesContext context, UIComponent component,
 			Object value) {
 
@@ -76,9 +74,7 @@ public class PersonFormBean implements Serializable {
 		}
 	}
 
-	// Multi field validation with <f:event>
-	// Rule: first two digits of PIN must match last two digits of the year of
-	// birth
+
 	public void validatePinDob(ComponentSystemEvent event) {
 
 		UIForm form = (UIForm) event.getComponent();

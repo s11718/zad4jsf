@@ -1,11 +1,11 @@
-package com.example.jsfdemo.service;
+package com.example.zad4jsf.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 
-import com.example.jsfdemo.domain.Person;
+import com.example.zad4jsf.domain.Person;
 
 @ApplicationScoped
 public class PersonManager {
@@ -15,17 +15,19 @@ public class PersonManager {
 		Person newPerson = new Person();
 
 		newPerson.setFirstName(person.getFirstName());
-		newPerson.setZipCode(person.getZipCode());
+		newPerson.setLastName(person.getLastName());
 		newPerson.setPin(person.getPin());
 		newPerson.setDateOfBirth(person.getDateOfBirth());
-		newPerson.setMarried(person.isMarried());
+		newPerson.setAddress(person.getAddress());
+		newPerson.setPhoneNumber(person.getPhoneNumber());
 		newPerson.setWeight(person.getWeight());
-		newPerson.setNumOfChildren(person.getNumOfChildren());
+		newPerson.setHeight(person.getHeight());
+		newPerson.setDateOfRegister(person.getDateOfRegister());
 
 		db.add(newPerson);
 	}
 
-	// Removes the person with given PIN
+
 	public void deletePerson(Person person) {
 		Person personToRemove = null;
 		for (Person p : db) {

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+
+		<h:form id="personform">
+
+				<f:event type="postValidate"
+					listener="#{personBean.validatePinDob}" />
+				<h:panelGrid columns="2">
+					<h:outputText value="#{msg.personFirstNameLabel}" />
+					<h:inputText id="firstName"
+						value="#{personBean.person.firstName}" required="#{true}" />
+
+					<h:outputText value="#{msg.personLastNameLabel}" />
+					<h:inputText id="lastName" value="#{personBean.person.lastName}"
+						required="#{true}" />
+
+					<h:outputText value="#{msg.personPinLabel}" />
+					<h:inputText id="pin" value="#{personBean.person.pin}"
+						validator="#{personBean.uniquePin}" required="#{true}">
+						<f:validator validatorId="pinValidator" />
+					</h:inputText>
+
+					<h:outputText value="#{msg.personDateOfBirthLabel}" />
+					<h:inputText id="dob" value="#{personBean.person.dateOfBirth}"
+						required="#{true}">
+						<f:convertDateTime type="date" pattern="dd.MM.yyyy" />
+					</h:inputText>
+
+					<h:outputText value="#{msg.personAddressLabel}" />
+					<h:inputText id="address" value="#{personBean.person.address}"
+						required="#{true}" />
+
+					<h:outputText value="#{msg.personPhoneNumberLabel}" />
+					<h:inputText id="phoneNumber"
+						value="#{personBean.person.phoneNumber}">
+						<f:validator validatorId="phoneValidator" />
+					</h:inputText>
+
+					<h:outputText value="#{msg.personWeightLabel}" />
+					<h:inputText id="weight" value="#{personBean.person.weight}">
+						<!-- 					<f:validateDoubleRange minimum="20.5" maximum="150.5" /> -->
+					</h:inputText>
+
+					<h:outputText value="#{msg.personHeightLabel}" />
+					<h:inputText id="height" value="#{personBean.person.height}">
+						<!-- 					<f:validateDoubleRange minimum="40" maximum="250" /> -->
+					</h:inputText>
+				</h:panelGrid>
+
+				<h:commandButton value="#{msg.personFormOKButton}"
+					action="#{personBean.addPerson}" />
+
+				<h:panelGrid>
+					<h:messages id="messages" showDetail="#{true}"
+						showSummary="#{false}" />
+				</h:panelGrid>
+
+			</h:form>
+
+	</ui:define>
+</ui:composition>

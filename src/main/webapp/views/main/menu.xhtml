@@ -4,8 +4,11 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 	<div>
-		<h:commandButton type="submit" id="SearchButton" value="#{msg.buttonSearchLabel}"
-			action="nextPage">
-		</h:commandButton>
+		<h:form>
+		
+		<h:commandLink class="btn" action="showPersons?faces-redirect=true" value="#{msg.buttonSearchLabel}"/>
+		<h:commandLink class="btn" action="addPerson?faces-redirect=true" value="#{msg.buttonAddPersonLabel}"/>
+		<h:commandLink class="btn last"  action="home?faces-redirect=true" value="#{msg.buttonToolsLabel}"/>
+		</h:form>
 	</div>
 </ui:composition>

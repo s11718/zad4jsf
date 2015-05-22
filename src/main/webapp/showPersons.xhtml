@@ -7,28 +7,49 @@
 	
 	<ui:define name="content">
 	
-    <h:form>
-    
-     <h:dataTable value="#{personBean.allPersons}" var="item">
-      <f:facet name="header">#{msg.personAllLabel}</f:facet>
-      
-      <h:column>
-        <f:facet name="header">#{msg.personFirstNameLabel}</f:facet>
-        #{item.firstName}
+   <h:form>
+			<h:dataTable value="#{personBean.allPersons}" var="person" border="1">
+				<h:column>
+					<f:facet name="header">#{msg.personFirstNameLabel}</f:facet>
+        #{person.firstName}
       </h:column>
-      
-      <h:column>
-        <f:facet name="header">#{msg.personPinLabel}</f:facet>
-        #{item.pin}
+				<h:column>
+					<f:facet name="header">#{msg.personLastNameLabel}</f:facet>
+        #{person.lastName}
       </h:column>
-      
-      <h:column>
-        <f:facet name="header">#{msg.action}</f:facet>
-        <h:commandLink value="#{msg.actionDelete}" action="#{personBean.deletePerson}"/>
+
+				<h:column>
+					<f:facet name="header">#{msg.personPinLabel}</f:facet>
+        #{person.pin}
       </h:column>
-      
-     </h:dataTable>
-    </h:form>
+				<h:column>
+					<f:facet name="header">#{msg.personDateOfBirthLabel}</f:facet>
+        #{person.dateOfBirth}
+      </h:column>
+				<h:column>
+					<f:facet name="header">#{msg.personAddressLabel}</f:facet>
+        #{person.address}
+      </h:column>
+				<h:column>
+					<f:facet name="header">#{msg.personPhoneNumberLabel}</f:facet>
+        #{person.phoneNumber}
+      </h:column>
+				<h:column>
+					<f:facet name="header">#{msg.personWeightLabel}</f:facet>
+        #{person.weight}
+      </h:column>
+				<h:column>
+					<f:facet name="header">#{msg.personHeightLabel}</f:facet>
+        #{person.height}
+      </h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.action}</f:facet>
+					<h:commandButton value="#{msg.actionDelete}"
+						action="#{personBean.deletePerson}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
       
 	</ui:define>
 	
