@@ -2,9 +2,7 @@ package com.example.zad4jsf.domain;
 
 import java.util.Date;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Person {
