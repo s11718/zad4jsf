@@ -20,7 +20,7 @@ public class PhoneNumberValidator implements Validator {
 		
 		if ((number != null && !number.isEmpty() && !number.matches(phonePattern))) {
 			FacesMessage message = new FacesMessage();
-			message.setDetail("The telephone number must consist of 9 digits, letters not allowed}");
+			message.setDetail("The telephone number must consist of 9 digits, letters not allowed");
 			message.setSummary("The telephone number must consist of 9 digits, letters not allowed");
 			message.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(message);

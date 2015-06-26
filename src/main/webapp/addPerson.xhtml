@@ -3,64 +3,101 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	template="/templates/default.xhtml">
+	template="/templates/default.xhtml"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	
 	<ui:define name="content">
 
-		<h:form id="personform">
+		
+			<h:form id="personform">
 
 				<f:event type="postValidate"
 					listener="#{personBean.validatePinDob}" />
-				<h:panelGrid columns="2">
+				<h:panelGrid columns="3">
 					<h:outputText value="#{msg.personFirstNameLabel}" />
 					<h:inputText id="firstName"
-						value="#{personBean.person.firstName}" required="#{true}" />
+						value="#{personBean.person.firstName}" label="firstName">
+						<f:validateRequired />
+						<rich:validator />
+					</h:inputText>
+					<rich:message for="firstName" ajaxRendered="true" />
 
 					<h:outputText value="#{msg.personLastNameLabel}" />
 					<h:inputText id="lastName" value="#{personBean.person.lastName}"
-						required="#{true}" />
+						label="lastName">
+						<f:validateRequired />
+						<rich:validator />
+					</h:inputText>
+					<rich:message for="lastName" ajaxRendered="true" />
 
 					<h:outputText value="#{msg.personPinLabel}" />
 					<h:inputText id="pin" value="#{personBean.person.pin}"
-						validator="#{personBean.uniquePin}" required="#{true}">
+						validator="#{personBean.uniquePin}" label="pin">
 						<f:validator validatorId="pinValidator" />
+						<f:validateRequired />
+						<rich:validator />
 					</h:inputText>
+					<rich:message for="pin" ajaxRendered="true" />
 
 					<h:outputText value="#{msg.personDateOfBirthLabel}" />
-					<h:inputText id="dob" value="#{personBean.person.dateOfBirth}"
-						required="#{true}">
-						<f:convertDateTime type="date" pattern="dd.MM.yyyy" />
-					</h:inputText>
+					<rich:calendar id="dob" label="dob"
+						value="#{personBean.person.dateOfBirth}"
+						datePattern="dd.MM.yyyy">
+						<f:validateRequired />
+						<rich:validator />
+					</rich:calendar>
+					<rich:message for="dob" ajaxRendered="true" />
 
 					<h:outputText value="#{msg.personAddressLabel}" />
 					<h:inputText id="address" value="#{personBean.person.address}"
-						required="#{true}" />
+						label="address">
+						<f:validateRequired />
+						<rich:validator />
+					</h:inputText>
+					<rich:message for="address" ajaxRendered="true" />
 
 					<h:outputText value="#{msg.personPhoneNumberLabel}" />
 					<h:inputText id="phoneNumber"
-						value="#{personBean.person.phoneNumber}">
+						value="#{personBean.person.phoneNumber}" label="phoneNumber">
 						<f:validator validatorId="phoneValidator" />
+						<rich:validator />
 					</h:inputText>
+					<rich:message for="phoneNumber" ajaxRendered="true" />
 
 					<h:outputText value="#{msg.personWeightLabel}" />
-					<h:inputText id="weight" value="#{personBean.person.weight}">
-						<!-- 					<f:validateDoubleRange minimum="20.5" maximum="150.5" /> -->
+					<h:inputText id="weight" value="#{personBean.person.weight}" label="weight">
+					<f:validateDoubleRange minimum="30" maximum="160" />
+					<rich:validator />
 					</h:inputText>
+					<rich:message for="weight" ajaxRendered="true" />
 
 					<h:outputText value="#{msg.personHeightLabel}" />
-					<h:inputText id="height" value="#{personBean.person.height}">
-						<!-- 					<f:validateDoubleRange minimum="40" maximum="250" /> -->
-					</h:inputText>
+					<h:inputText id="height" value="#{personBean.person.height}" label="height">
+					<f:validateDoubleRange minimum="40" maximum="250" />
+					<rich:validator />
+					</h:inputText>			
+					<rich:message for="height" ajaxRendered="true" />
+
 				</h:panelGrid>
 
-				<h:commandButton value="#{msg.personFormOKButton}"
+				<a4j:commandButton value="#{msg.personFormOKButton}"
 					action="#{personBean.addPerson}" />
 
 				<h:panelGrid>
-					<h:messages id="messages" showDetail="#{true}"
-						showSummary="#{false}" />
+					<rich:messages for="personform" style="color:red" id="messages"
+						showDetail="#{false}" showSummary="#{true}" />
 				</h:panelGrid>
-
 			</h:form>
+		
 
 	</ui:define>
 </ui:composition>
+
+
+
+
+
+
+
+				

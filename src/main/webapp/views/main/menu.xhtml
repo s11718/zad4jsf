@@ -3,12 +3,14 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
-	<div>
+	<div id="menu">
 		<h:form>
-		
-		<h:commandLink class="btn" action="showPersons?faces-redirect=true" value="#{msg.buttonSearchLabel}"/>
-		<h:commandLink class="btn" action="addPerson?faces-redirect=true" value="#{msg.buttonAddPersonLabel}"/>
-		<h:commandLink class="btn last"  action="home?faces-redirect=true" value="#{msg.buttonToolsLabel}"/>
+		<ul>
+		<li><h:commandLink class="btn" action="showPersons?faces-redirect=true" value="#{msg.buttonSearchLabel}"/></li>
+		<li><h:commandLink class="btn" action="addPerson?faces-redirect=true" value="#{msg.buttonAddPersonLabel}"/></li>
+		<li><h:commandLink class="btn" action="filterPerson?faces-redirect=true" value="#{msg.buttonFilterPersonLabel}"/></li>
+		<li class="last"><h:commandLink class="btn"  action="home?faces-redirect=true" value="#{msg.buttonToolsLabel}"/></li>
+		</ul>
 		</h:form>
 	</div>
 </ui:composition>
